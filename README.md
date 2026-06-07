@@ -1,26 +1,31 @@
 # Laundry Guide
 
-Beginner-friendly laundry knowledge: detergents, enzymes, odors, and practical routines.
+A personal laundry system for a **new washer**: powder-only cleaning, enzyme booster for gym wear, citric acid instead of fabric softener — and why.
 
 ## Read the guide
 
-- **Website (recommended):** open [`docs/index.html`](docs/index.html) in any browser
+- **Website:** [`docs/index.html`](docs/index.html)
 - **Markdown:** [`docs/guide.md`](docs/guide.md)
-- **PDF:** open the HTML file → Print → Save as PDF
+- **PDF:** open HTML → Print → Save as PDF
 
-## Topics covered
+## The stack
 
-- Liquid vs powder — when to use each
-- Surfactants, enzymes, oxygen bleach, oxi boosters, citric acid
-- Gym clothes, enzyme boosters, and persistent odors
-- Why clothes smell like vomit after washing (butyric acid chemistry)
-- Example load-by-load routine (front-loader, hard water)
-- Washer and dryer maintenance
+| Product | Role |
+|---|---|
+| 365 Unscented Powder | Main detergent |
+| Dirty Labs Bio Enzyme Booster | Lipase / gym & body oils |
+| Food-grade citric acid (dissolved) | Rinse aid in softener drawer |
 
-## Local preview
+**Avoid:** liquid detergent in the machine, fabric softener.
+
+## Lipase list
+
+[Community lipase detergent spreadsheet](https://docs.google.com/spreadsheets/d/1oHWzZ1Sth0Y0J2ynmXFl7M4mGZe-T_MJ_m_Y39pfBug/edit)
+
+## Preview locally
 
 ```bash
 python3 -m http.server 8080 --directory docs
 ```
 
-Then visit http://localhost:8080
+http://localhost:8080
