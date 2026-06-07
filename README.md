@@ -4,9 +4,12 @@ A personal laundry system for a **new washer**: powder-only cleaning, enzyme boo
 
 ## Read the guide
 
-- **Website:** [`docs/index.html`](docs/index.html)
+- **Live site (GitHub Pages):** https://rcfilter.github.io/laundry/
+- **Local file:** [`docs/index.html`](docs/index.html)
 - **Markdown:** [`docs/guide.md`](docs/guide.md)
-- **PDF:** open HTML → Print → Save as PDF
+- **PDF:** open the live site or HTML → Print → Save as PDF
+
+Pages deploys automatically from the `docs/` folder on every push to `main`.
 
 ## The stack
 
