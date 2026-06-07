@@ -9,17 +9,11 @@ A personal laundry system for a **new washer**: powder-only cleaning, enzyme boo
 - **Markdown:** [`docs/guide.md`](docs/guide.md)
 - **PDF:** open the live site or HTML → Print → Save as PDF
 
-Pages deploys automatically from the `docs/` folder on every push to `main`.
+Pages deploys the contents of `docs/` (not the whole repo) on every push to `main` via [`.github/workflows/pages.yml`](.github/workflows/pages.yml).
 
-### One-time setup (required)
+**Share this URL:** https://rcfilter.github.io/laundry/
 
-GitHub Pages must be turned on once in the repo settings:
-
-1. Open **Settings → Pages** for this repo  
-2. Under **Build and deployment**, set **Source** to **GitHub Actions**  
-3. Save — the [Deploy GitHub Pages](https://github.com/RCfilter/laundry/actions/workflows/pages.yml) workflow will run on the next push to `main` (or re-run the last failed run)
-
-After that, the site is live at **https://rcfilter.github.io/laundry/**
+Do not add a second Pages workflow that uploads `.` (repo root) — that breaks the site root and only works at `/laundry/docs/index.html`.
 
 ## The stack
 
