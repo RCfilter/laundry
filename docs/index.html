@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Laundry Guide for Beginners</title>
+  <style>
+    :root {
+      --bg: #faf9f7;
+      --surface: #ffffff;
+      --text: #1a1a1a;
+      --muted: #5c5c5c;
+      --accent: #2563eb;
+      --accent-soft: #eff6ff;
+      --border: #e5e2dc;
+      --tip-bg: #f0fdf4;
+      --tip-border: #86efac;
+      --warn-bg: #fffbeb;
+      --warn-border: #fcd34d;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+      font-size: 17px;
+      line-height: 1.65;
+      color: var(--text);
+      background: var(--bg);
+    }
+
+    header {
+      background: linear-gradient(135deg, #1e3a5f 0%, #2563eb 100%);
+      color: white;
+      padding: 3rem 1.5rem 2.5rem;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0 0 0.5rem;
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    header p {
+      margin: 0 auto;
+      max-width: 42rem;
+      opacity: 0.92;
+      font-size: 1.05rem;
+    }
+
+    .container {
+      max-width: 52rem;
+      margin: 0 auto;
+      padding: 0 1.25rem 4rem;
+    }
+
+    nav.toc {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem 1.75rem;
+      margin: -2rem auto 2.5rem;
+      max-width: 52rem;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+    }
+
+    nav.toc h2 {
+      margin: 0 0 0.75rem;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+    }
+
+    nav.toc ol {
+      margin: 0;
+      padding-left: 1.25rem;
+      columns: 2;
+      column-gap: 2rem;
+    }
+
+    @media (max-width: 600px) {
+      nav.toc ol { columns: 1; }
+    }
+
+    nav.toc a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    nav.toc a:hover { text-decoration: underline; }
+
+    section {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.75rem 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    h2 {
+      margin: 0 0 1rem;
+      font-size: 1.45rem;
+      letter-spacing: -0.02em;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--accent-soft);
+    }
+
+    h3 {
+      margin: 1.5rem 0 0.5rem;
+      font-size: 1.1rem;
+    }
+
+    h3:first-of-type { margin-top: 0; }
+
+    p { margin: 0 0 1rem; }
+
+    ul, ol { margin: 0 0 1rem; padding-left: 1.4rem; }
+    li { margin-bottom: 0.35rem; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+      font-size: 0.95rem;
+    }
+
+    th, td {
+      border: 1px solid var(--border);
+      padding: 0.6rem 0.75rem;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: var(--accent-soft);
+      font-weight: 600;
+    }
+
+    .callout {
+      border-radius: 8px;
+      padding: 1rem 1.15rem;
+      margin: 1rem 0;
+      font-size: 0.95rem;
+    }
+
+    .callout.tip {
+      background: var(--tip-bg);
+      border-left: 4px solid var(--tip-border);
+    }
+
+    .callout.warn {
+      background: var(--warn-bg);
+      border-left: 4px solid var(--warn-border);
+    }
+
+    .callout strong { display: block; margin-bottom: 0.25rem; }
+
+    code {
+      background: #f3f4f6;
+      padding: 0.15em 0.4em;
+      border-radius: 4px;
+      font-size: 0.9em;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    footer a { color: var(--accent); }
+
+    @media print {
+      body { background: white; font-size: 11pt; }
+      header { background: #1e3a5f; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      nav.toc, section { box-shadow: none; break-inside: avoid; }
+      nav.toc { margin-top: 0; }
+      a { color: inherit; text-decoration: none; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Laundry Guide for Beginners</h1>
+  <p>A practical introduction to detergents, enzymes, odors, and routines — distilled from community knowledge and laundry chemistry, without the jargon overload.</p>
+</header>
+
+<div class="container">
+  <nav class="toc" aria-label="Table of contents">
+    <h2>Contents</h2>
+    <ol>
+      <li><a href="#start-here">Start here</a></li>
+      <li><a href="#liquid-vs-powder">Liquid vs powder</a></li>
+      <li><a href="#ingredients">What’s in your detergent</a></li>
+      <li><a href="#water-machine">Water, temperature &amp; HE machines</a></li>
+      <li><a href="#practical-setup">A practical detergent setup</a></li>
+      <li><a href="#gym-clothes">Gym clothes &amp; enzyme boosters</a></li>
+      <li><a href="#vomit-smell">The “vomit smell” problem</a></li>
+      <li><a href="#example-routine">Example load-by-load routine</a></li>
+      <li><a href="#machine-care">Washer &amp; dryer care</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ol>
+  </nav>
+
+  <section id="start-here">
+    <h2>Start here</h2>
+    <p>If you’ve been tossing Tide Pods in and calling it a day — and that works for you — you don’t <em>have</em> to change anything. Many people never notice a problem until they get new machines, harder water, or gym clothes that won’t stop smelling.</p>
+    <p>This guide explains <strong>why</strong> enthusiasts use different products for different loads, and gives you enough chemistry to make informed choices without memorizing a chemistry degree.</p>
+
+    <div class="callout tip">
+      <strong>The one-sentence version</strong>
+      Use <strong>liquid</strong> when oils and grease are the main problem; use <strong>powder</strong> when dirt, mud, dinginess, and odors are the main problem. Most beginners do fine with a good liquid alone; adding powder (or boosters) helps for whites, towels, and heavily soiled work clothes.
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Problem</th>
+          <th>Reach for</th>
+          <th>Examples</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Oils, grease, food stains, body oils</td>
+          <td><strong>Liquid</strong> detergent (can pre-treat stains directly)</td>
+          <td>Everyday clothes, gym wear, shirts with spills</td>
+        </tr>
+        <tr>
+          <td>Dirt, mud, dust, dinginess, whitening, stubborn odors</td>
+          <td><strong>Powder</strong> detergent (often has oxygen bleach / activators)</td>
+          <td>Work clothes, gardening clothes, white towels &amp; sheets</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="liquid-vs-powder">
+    <h2>Liquid vs powder</h2>
+
+    <h3>When liquid shines</h3>
+    <p>Liquids are already dissolved, so they’re especially good at:</p>
+    <ul>
+      <li>Body oils and sweat</li>
+      <li>Food grease, makeup, sunscreen</li>
+      <li>Motor oil and similar oily stains</li>
+    </ul>
+    <p>You can also apply liquid directly to a stain before washing.</p>
+
+    <h3>When powder shines</h3>
+    <p>Powders often contain ingredients that excel at:</p>
+    <ul>
+      <li>Clay, mud, dust, and soil</li>
+      <li>Soot, ash, and general dinginess</li>
+      <li>Whitening whites and removing stubborn odors</li>
+    </ul>
+    <p>Many powders include oxygen bleach or bleach activators for whitening and deodorizing.</p>
+
+    <h3>Temperature &amp; hardness (quick rules)</h3>
+    <ul>
+      <li><strong>Cold water:</strong> liquids generally dissolve and work well. Modern powders are much better than old formulas, but in very cold water, make sure powder fully dissolves.</li>
+      <li><strong>Warm/hot:</strong> traditional powders loved warm water; oxygen bleach works best warm-to-hot with enough time.</li>
+      <li><strong>Hard water:</strong> powders often perform well (many include water-softening ingredients). Some liquids struggle depending on formula.</li>
+      <li><strong>Soft water:</strong> both usually work fine.</li>
+    </ul>
+  </section>
+
+  <section id="ingredients">
+    <h2>What’s in your detergent</h2>
+    <p>Understanding a few ingredient types helps you read labels and fix problems (especially gym odors).</p>
+
+    <h3>Surfactants</h3>
+    <p>Surface-active agents — the primary cleaners. They <strong>lift and carry</strong> soil; they don’t chemically destroy stains. Great for everyday dirt, body oils, and grease. They prevent soil from reattaching to fabric during the wash.</p>
+
+    <h3>Enzymes</h3>
+    <table>
+      <thead>
+        <tr><th>Enzyme</th><th>Targets</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Protease</strong></td><td>Sweat proteins, blood, food proteins</td></tr>
+        <tr><td><strong>Lipase</strong></td><td>Body oils, sebum, greasy residues</td></tr>
+        <tr><td><strong>Amylase</strong></td><td>Starch-based food stains</td></tr>
+        <tr><td><strong>Cellulase</strong></td><td>Can reduce dinginess and improve fabric appearance</td></tr>
+        <tr><td><strong>DNase</strong></td><td>Helps remove oily residues from humans/animals (found in some sport detergents)</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Oxygen bleach</h3>
+    <p>Usually sodium percarbonate, which releases hydrogen peroxide in water. It <strong>chemically changes</strong> stains (breaks color bonds) rather than just lifting them. Best on organic stains (wine, coffee, grass, blood), yellowed whites, and odor-causing residues. Less effective on grease alone. Warm-to-hot water and soak time improve results. Color-safe on most fabrics.</p>
+
+    <h3>Oxi boosters (e.g. Biz)</h3>
+    <p>Boost cleaning, soften water, and improve stain/soil removal. Often contain oxygen bleach and sometimes <strong>optical brighteners (OBAs)</strong> — great for whites and lights, but OBAs can fade colored clothing over long periods. For darks darker than “light navy,” consider a dark-safe oxi without OBAs (e.g. Febu) or skip oxi on those loads.</p>
+    <p><strong>Application tip:</strong> add oxi to the drum before clothes. In warm+ water it can go in dry; in cooler temps, dissolve in a quart of hot tap water first.</p>
+
+    <h3>Citric acid (rinse aid)</h3>
+    <p>Used in the <strong>rinse</strong>, not as detergent. Balances pH, helps remove excess detergent and mineral film, and can improve fabric feel (fluffier towels, smoother sheets). Odor benefits often come from stripping sticky detergent/mineral buildup rather than masking smell.</p>
+    <p><strong>Dose starting point:</strong> 1–2 teaspoons in the softener drawer. Increase for very hard water (roughly +50% base dose per 100 ppm hardness past ~150 ppm). Most HE machines tolerate dry powder in the dispenser; if you see residue, top off with tap water after adding acid, or dissolve in room-temperature water first (add acid to water, not water to acid).</p>
+  </section>
+
+  <section id="water-machine">
+    <h2>Water, temperature &amp; HE machines</h2>
+
+    <h3>High-efficiency (HE) washers</h3>
+    <p>Both liquid and powder work in HE machines if labeled HE-compatible. The bigger issue is <strong>dosage</strong>:</p>
+    <ul>
+      <li>Too much liquid → residue on clothes</li>
+      <li>Too much powder → undissolved detergent</li>
+    </ul>
+    <p>Most people use more detergent than necessary. When tuning a new routine, watch suds: a trace of bubbles on the door glass a few minutes into agitation is enough; more than that → reduce dose.</p>
+
+    <h3>Hard water dosing (example from community)</h3>
+    <p>At ~50 ppm hardness, ~¼ cup oxi per “default” load is a starting point; at ~105 ppm, ~⅓ cup may be appropriate. Add roughly a tablespoon more oxi per 50 ppm hardness beyond ~75 ppm, then adjust if suds are excessive.</p>
+  </section>
+
+  <section id="practical-setup">
+    <h2>A practical detergent setup</h2>
+
+    <h3>If you want to keep it simple</h3>
+    <p>A <strong>good liquid detergent</strong> is the most versatile single choice for everyday laundry, dark clothes, and oily stains (including spot treatment).</p>
+
+    <h3>If you want enthusiast-level results</h3>
+    <p>Many people keep <strong>both</strong>:</p>
+    <table>
+      <thead>
+        <tr><th>Product</th><th>Use for</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Liquid</strong></td><td>Daily laundry, darks, oily stains, pre-treating</td></tr>
+        <tr><td><strong>Powder</strong></td><td>Whites, towels, bedding, muddy/heavily soiled loads, odor-heavy items</td></tr>
+      </tbody>
+    </table>
+    <p>If you regularly wash work clothes, sports uniforms, gardening clothes, or white linens, keeping powder on hand is often worth it even if liquid is your default.</p>
+  </section>
+
+  <section id="gym-clothes">
+    <h2>Gym clothes &amp; enzyme boosters</h2>
+    <p>Gym wear problems are usually:</p>
+    <ol>
+      <li>Body oils/sebum trapped in synthetic fibers</li>
+      <li>Sweat residues</li>
+      <li>Odor-causing bacteria feeding on what’s left behind</li>
+    </ol>
+
+    <h3>Do enzyme boosters (e.g. Dirty Labs Bio Enzyme Booster) help?</h3>
+    <p><strong>Yes, often</strong> — especially for body oils and gym clothes — but how much depends on what you’re removing and what detergent you already use.</p>
+    <ul>
+      <li>Enzymes break down soils; they don’t magically destroy odors in one wash.</li>
+      <li><strong>Lipase</strong> is the key enzyme for body oils — critical for polyester workout shirts, leggings, and sports bras where oil builds up over many washes.</li>
+      <li>If you already use a premium enzyme-rich powder, a booster may only help modestly.</li>
+      <li>Boosters help more when: your detergent has limited enzymes, you wash cold, odors persist, or older synthetics seem “permanently funky.”</li>
+    </ul>
+
+    <div class="callout tip">
+      <strong>Expectation vs reality</strong>
+      Effects are usually <em>cumulative</em>: odors fade faster over time, buildup slows, stubborn items become easier to restore. One scoop rarely makes a rank shirt “brand new.”
+    </div>
+
+    <h3>Bigger wins than adding a booster</h3>
+    <ul>
+      <li>Don’t overdose detergent (residue traps odor)</li>
+      <li>Wash soon after workouts</li>
+      <li>Use a detergent with strong enzyme chemistry</li>
+      <li><strong>Avoid fabric softener</strong> on athletic wear (coating traps oils and bacteria)</li>
+      <li>Occasionally deep-soak heavily affected items</li>
+    </ul>
+    <p>Moving from a basic detergent to a high-quality enzyme detergent often helps more than stacking a booster on top of an already strong formula.</p>
+
+    <h3>Why polyester is the worst offender</h3>
+    <p>Polyester attracts and holds oily compounds more than cotton. The same wash that leaves cotton fine can leave microscopic oil in polyester — odor shows up when body heat warms the fabric and volatile compounds evaporate (“smelled clean out of the dryer, vomit smell 15 minutes into my workout”).</p>
+  </section>
+
+  <section id="vomit-smell">
+    <h2>The “vomit smell” problem (butyric acid)</h2>
+    <p>Clothes that smell sour, cheesy, or like vomit <em>after</em> washing usually don’t mean the detergent did nothing. Something organic survived the wash and was transformed or revealed — often by bacteria — into volatile fatty acids like <strong>butyric acid</strong>, detectable at extremely low concentrations.</p>
+
+    <h3>Common causes</h3>
+    <ol>
+      <li><strong>Body oils not fully removed</strong> — sebum, sweat, skin cells, cosmetics trapped in fibers (especially polyester). Bacteria metabolize leftovers → butyric acid. Shirt smells fine wet, sour when dry or warmed.</li>
+      <li><strong>Biofilm in the washer</strong> — bacteria, fungi, soap scum, and oils in front-load gaskets and low-water HE systems can transfer back onto clothes. Machine may smell only mildly musty while clothes come out worse.</li>
+      <li><strong>Enzymes left intermediates behind</strong> — lipases split fats into fatty acids; proteases split proteins. Normally these rinse away. Overloaded washer, low dose, or poor rinse → smellier breakdown products remain.</li>
+      <li><strong>Anaerobic bacteria in damp laundry</strong> — clothes sitting in a hamper or washer overnight produce butyric acid, isovaleric acid, etc.</li>
+      <li><strong>Fabric softener buildup</strong> — hydrophobic coating traps oils and bacteria under a “clean” surface.</li>
+    </ol>
+
+    <h3>What actually helps</h3>
+    <ul>
+      <li>Correct detergent dose with enzymes (especially lipase)</li>
+      <li>Warm water when fabric care allows</li>
+      <li>No fabric softener on athletic wear</li>
+      <li>Extra rinse when needed</li>
+      <li>Periodic washer cleaning (tub clean, citric acid or tablets monthly)</li>
+      <li>Occasional oxygen bleach on appropriate loads</li>
+      <li>Don’t leave wet laundry sitting for hours</li>
+    </ul>
+  </section>
+
+  <section id="example-routine">
+    <h2>Example load-by-load routine</h2>
+    <p>Below is a <strong>real-world example</strong> from an r/laundry community member (LG front-loader, ~105 ppm hard water). Treat it as inspiration, not gospel — adjust products and doses to your water, machine manual, and fabrics.</p>
+    <p><strong>Products referenced:</strong> Biz (oxi), Whole Foods 365 Sport (liquid, DNase + lipase), 365 Unscented Powder (stronger surfactants, more enzymes, oxygen bleach), citric acid in softener drawer. Most loads use <strong>double extra rinse</strong>.</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Load type</th>
+          <th>Biz (drum)</th>
+          <th>365 Sport</th>
+          <th>365 Powder</th>
+          <th>Citric acid</th>
+          <th>Temp</th>
+          <th>Cycle notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Whites</strong></td>
+          <td>⅓ cup</td>
+          <td>1 cap → drawer</td>
+          <td>½ scoop → drawer</td>
+          <td>2 tsp → softener</td>
+          <td>Hot</td>
+          <td>Whites + 2 extra rinse</td>
+        </tr>
+        <tr>
+          <td><strong>Light colors</strong></td>
+          <td>⅓ cup</td>
+          <td>1 cap → drawer</td>
+          <td>½ scoop → drawer</td>
+          <td>2 tsp</td>
+          <td>Warm</td>
+          <td>Normal + 2 extra rinse</td>
+        </tr>
+        <tr>
+          <td><strong>Dark colors / jeans</strong></td>
+          <td>None</td>
+          <td>1 cap → drawer</td>
+          <td>½ scoop → drum</td>
+          <td>2 tsp</td>
+          <td>Warm</td>
+          <td>Normal + 2 extra rinse</td>
+        </tr>
+        <tr>
+          <td><strong>Bedding</strong></td>
+          <td>⅓ cup</td>
+          <td>1 cap → drawer</td>
+          <td>½ scoop → drum</td>
+          <td>2 tsp</td>
+          <td>Hot</td>
+          <td>Bedding/Jumbo + 2 extra rinse</td>
+        </tr>
+        <tr>
+          <td><strong>Towels</strong></td>
+          <td>⅓ cup</td>
+          <td>1 cap → drawer</td>
+          <td>½ scoop → drum</td>
+          <td>2 tsp</td>
+          <td>Hot</td>
+          <td>Towels + 2 extra rinse</td>
+        </tr>
+        <tr>
+          <td><strong>Sportswear</strong></td>
+          <td>⅓ cup</td>
+          <td>1 cap → drawer</td>
+          <td>½ scoop → drawer</td>
+          <td>2 tsp</td>
+          <td>Warm</td>
+          <td>Sportswear + 2 extra rinse</td>
+        </tr>
+        <tr>
+          <td><strong>Delicates</strong></td>
+          <td>None</td>
+          <td>1 cap → drawer</td>
+          <td>None</td>
+          <td>2 tsp</td>
+          <td>Cool</td>
+          <td>Delicates + 2 extra rinse</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout tip">
+      <strong>Why both Sport and Powder?</strong>
+      365 Sport brings DNase and lipase for athletic/soiled garments; 365 Powder brings stronger surfactants, additional enzymes, and oxygen bleach. Using both on every load (except delicates) is intentional overlap, not an accident — whether it’s overkill depends on your goals and budget. If cost doesn’t matter and you want maximum cleaning, the combo is reasonable; if simplifying, try powder-only on muddy/white loads and liquid-only on everyday darks.
+    </div>
+  </section>
+
+  <section id="machine-care">
+    <h2>Washer &amp; dryer care</h2>
+
+    <h3>Washer</h3>
+    <ul>
+      <li><strong>Extra rinse</strong> — helps remove detergent, bleach, and mineral residue (especially with boosters and hard water).</li>
+      <li><strong>Monthly tub clean</strong> — cleaning tablets in drum, or powdered cleaner / citric acid in main detergent compartment (remove liquid cup if required by manual).</li>
+      <li><strong>Weekly</strong> — wipe and disinfect door seal/gasket.</li>
+      <li><strong>After each use</strong> — leave door and detergent drawer open to dry.</li>
+      <li><strong>Monthly</strong> — remove and clean detergent drawer.</li>
+      <li><strong>Periodically</strong> — clean drain pump filter.</li>
+      <li>After tub clean with descaler, run rinse+spin before the next wash if manual recommends it.</li>
+    </ul>
+
+    <h3>Dryer</h3>
+    <ul>
+      <li>Clean lint trap every load.</li>
+      <li>Clean vent ducts annually (fire safety + efficiency).</li>
+      <li>Medium heat is a common default; dryer sheets (e.g. lint-guard types) are optional — skip or minimize on athletic synthetics if odor is an issue.</li>
+    </ul>
+  </section>
+
+  <section id="faq">
+    <h2>FAQ</h2>
+
+    <h3>Is using both liquid Sport and powder on every load overkill?</h3>
+    <p>Not necessarily. They cover different strengths (DNase/lipase sport liquid vs surfactants/enzymes/oxygen bleach in powder). If you’re not cost-sensitive and want maximum cleaning on most loads, using both is a valid plan. Skip powder on delicates; skip oxi with OBAs on darks. If you want simpler: liquid-only for daily/darks, add powder (+ oxi) for whites, towels, bedding, and heavy soil.</p>
+
+    <h3>Should citric acid go dry in the softener drawer or dissolved in water?</h3>
+    <p>Most HE machines handle dry citric acid in the softener compartment. If you see undissolved residue, top the compartment with tap water after adding the powder, or pre-dissolve in room-temperature water (citric acid into water, slowly). Warm wash water usually helps even if you add it dry.</p>
+
+    <h3>Will an enzyme booster fix gym smell in one wash?</h3>
+    <p>Usually no. Expect gradual improvement over multiple washes, plus fixes to dose, timing, softener use, and washer hygiene.</p>
+
+    <h3>Why does my shirt smell fine in the dryer but awful when I exercise?</h3>
+    <p>Classic sign of residual body oils in synthetic fibers. Body heat releases volatile fatty acids (including butyric acid) that were present but not obvious when cold.</p>
+  </section>
+</div>
+
+<footer>
+  <p>Compiled for beginners from community laundry knowledge. Open <code>docs/index.html</code> in any browser; use <strong>Print → Save as PDF</strong> for a portable copy.</p>
+  <p>Sources: r/laundry community guide &amp; laundry chemistry Q&amp;A (liquid/powder, enzymes, butyric acid odors).</p>
+</footer>
+
+</body>
+</html>
