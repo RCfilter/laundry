@@ -11,6 +11,16 @@ A personal laundry system for a **new washer**: powder-only cleaning, enzyme boo
 
 Pages deploys automatically from the `docs/` folder on every push to `main`.
 
+### One-time setup (required)
+
+GitHub Pages must be turned on once in the repo settings:
+
+1. Open **Settings → Pages** for this repo  
+2. Under **Build and deployment**, set **Source** to **GitHub Actions**  
+3. Save — the [Deploy GitHub Pages](https://github.com/RCfilter/laundry/actions/workflows/pages.yml) workflow will run on the next push to `main` (or re-run the last failed run)
+
+After that, the site is live at **https://rcfilter.github.io/laundry/**
+
 ## The stack
 
 | Product | Role |
