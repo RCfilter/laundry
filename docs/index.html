@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Laundry System — Powder, Enzymes &amp; Citric Acid</title>
+  <style>
+    :root {
+      --bg: #faf9f7;
+      --surface: #ffffff;
+      --text: #1a1a1a;
+      --muted: #5c5c5c;
+      --accent: #2563eb;
+      --accent-soft: #eff6ff;
+      --border: #e5e2dc;
+      --tip-bg: #f0fdf4;
+      --tip-border: #86efac;
+      --warn-bg: #fffbeb;
+      --warn-border: #fcd34d;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+      font-size: 17px;
+      line-height: 1.65;
+      color: var(--text);
+      background: var(--bg);
+    }
+
+    header {
+      background: linear-gradient(135deg, #1e3a5f 0%, #2563eb 100%);
+      color: white;
+      padding: 3rem 1.5rem 2.5rem;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0 0 0.5rem;
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    header p {
+      margin: 0 auto;
+      max-width: 44rem;
+      opacity: 0.92;
+      font-size: 1.05rem;
+    }
+
+    .container {
+      max-width: 52rem;
+      margin: 0 auto;
+      padding: 0 1.25rem 4rem;
+    }
+
+    nav.toc {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem 1.75rem;
+      margin: -2rem auto 2.5rem;
+      max-width: 52rem;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+    }
+
+    nav.toc h2 {
+      margin: 0 0 0.75rem;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+    }
+
+    nav.toc ol {
+      margin: 0;
+      padding-left: 1.25rem;
+      columns: 2;
+      column-gap: 2rem;
+    }
+
+    @media (max-width: 600px) {
+      nav.toc ol { columns: 1; }
+    }
+
+    nav.toc a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    nav.toc a:hover { text-decoration: underline; }
+
+    section {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.75rem 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    section.reference {
+      background: #f8f9fa;
+    }
+
+    h2 {
+      margin: 0 0 1rem;
+      font-size: 1.45rem;
+      letter-spacing: -0.02em;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--accent-soft);
+    }
+
+    h3 {
+      margin: 1.5rem 0 0.5rem;
+      font-size: 1.1rem;
+    }
+
+    h3:first-of-type { margin-top: 0; }
+
+    p { margin: 0 0 1rem; }
+
+    ul, ol { margin: 0 0 1rem; padding-left: 1.4rem; }
+    li { margin-bottom: 0.35rem; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+      font-size: 0.95rem;
+    }
+
+    th, td {
+      border: 1px solid var(--border);
+      padding: 0.6rem 0.75rem;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: var(--accent-soft);
+      font-weight: 600;
+    }
+
+    .stack {
+      display: grid;
+      gap: 1rem;
+      margin: 1.25rem 0;
+    }
+
+    @media (min-width: 600px) {
+      .stack { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    .stack-card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.1rem 1.2rem;
+      background: var(--accent-soft);
+    }
+
+    .stack-card strong {
+      display: block;
+      font-size: 1.05rem;
+      margin-bottom: 0.35rem;
+      color: #1e3a5f;
+    }
+
+    .stack-card span {
+      font-size: 0.85rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .callout {
+      border-radius: 8px;
+      padding: 1rem 1.15rem;
+      margin: 1rem 0;
+      font-size: 0.95rem;
+    }
+
+    .callout.tip {
+      background: var(--tip-bg);
+      border-left: 4px solid var(--tip-border);
+    }
+
+    .callout.warn {
+      background: var(--warn-bg);
+      border-left: 4px solid var(--warn-border);
+    }
+
+    .callout strong { display: block; margin-bottom: 0.25rem; }
+
+    .avoid-list {
+      display: grid;
+      gap: 0.75rem;
+      margin: 1rem 0;
+    }
+
+    .avoid-item {
+      padding: 0.85rem 1rem;
+      border-radius: 8px;
+      border: 1px solid #fecaca;
+      background: #fef2f2;
+    }
+
+    .avoid-item strong { color: #991b1b; }
+
+    code {
+      background: #f3f4f6;
+      padding: 0.15em 0.4em;
+      border-radius: 4px;
+      font-size: 0.9em;
+    }
+
+    a.ext::after {
+      content: " ↗";
+      font-size: 0.85em;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    footer a { color: var(--accent); }
+
+    @media print {
+      body { background: white; font-size: 11pt; }
+      header { background: #1e3a5f; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      nav.toc, section { box-shadow: none; break-inside: avoid; }
+      nav.toc { margin-top: 0; }
+      a { color: inherit; text-decoration: none; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>My Laundry System</h1>
+  <p>Why this setup uses <strong>365 powder</strong>, <strong>Dirty Labs Bio Enzyme Booster</strong>, and <strong>food-grade citric acid</strong> — and deliberately avoids liquid detergent and fabric softener on a new machine.</p>
+</header>
+
+<div class="container">
+  <nav class="toc" aria-label="Table of contents">
+    <h2>Contents</h2>
+    <ol>
+      <li><a href="#the-stack">The three-product stack</a></li>
+      <li><a href="#why-no-liquid">Why no liquid detergent or softener</a></li>
+      <li><a href="#each-product">What each product does</a></li>
+      <li><a href="#how-to-wash">How to run a load</a></li>
+      <li><a href="#lipase-list">Lipase detergent list</a></li>
+      <li><a href="#gym-odors">Gym clothes &amp; odors</a></li>
+      <li><a href="#machine-care">Protecting a new machine</a></li>
+      <li><a href="#reference">Reference (jar test, chemistry)</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ol>
+  </nav>
+
+  <section id="the-stack">
+    <h2>The three-product stack</h2>
+    <p>This isn’t “use everything the internet recommends.” It’s a deliberate system for a <strong>new washer</strong>: clean well, avoid residue that sticks to the machine or fabric, and still handle body oils and gym wear without resorting to liquid sport detergent.</p>
+
+    <div class="stack">
+      <div class="stack-card">
+        <span>Main detergent</span>
+        <strong>365 Unscented Powder</strong>
+        Strong surfactants, enzymes, oxygen bleach — mud, dinginess, general cleaning.
+      </div>
+      <div class="stack-card">
+        <span>Enzyme boost</span>
+        <strong>Dirty Labs Bio Enzyme Booster</strong>
+        Extra lipase/protease/etc. for body oils and athletic wear — replaces the “liquid sport” role.
+      </div>
+      <div class="stack-card">
+        <span>Rinse / feel</span>
+        <strong>Citric acid (food grade)</strong>
+        Dissolved in water → softener drawer. pH balance and rinse aid — <em>not</em> fabric softener.
+      </div>
+    </div>
+
+    <div class="avoid-list">
+      <div class="avoid-item">
+        <strong>Not used:</strong> Liquid detergent (including sport liquids, pods with liquid fill, etc.)
+      </div>
+      <div class="avoid-item">
+        <strong>Not used:</strong> Liquid fabric softener or dryer sheets with softening coating
+      </div>
+    </div>
+  </section>
+
+  <section id="why-no-liquid">
+    <h2>Why no liquid detergent or fabric softener?</h2>
+    <p>The goal with a brand-new machine is to avoid leaving <strong>physical and chemical “hooks”</strong> — anything that can accumulate in the drawer, gasket, pump, or fibers and give future soil, oils, or bacteria something to grab onto.</p>
+
+    <h3>Fabric softener — avoid (strong agreement)</h3>
+    <p>This part of the reasoning is <strong>well supported</strong>. Liquid fabric softener deposits a <strong>waxy, hydrophobic cationic coating</strong> on fabric. That coating:</p>
+    <ul>
+      <li>Traps body oils and bacteria (especially bad on polyester gym wear)</li>
+      <li>Reduces absorbency on towels</li>
+      <li>Can contribute to drawer and gasket film in HE machines</li>
+      <li>Makes detergent less effective over time on coated fibers</li>
+    </ul>
+    <p><strong>Food-grade citric acid in the rinse</strong> is a different mechanism: it helps remove excess detergent and mineral film and balances pH. It improves feel without leaving a persistent fat-like coating. That’s why it goes in the softener compartment — same timing, different chemistry.</p>
+
+    <h3>Liquid detergent — cautious agreement (with nuance)</h3>
+    <p>Avoiding liquid on a <strong>new</strong> machine is a <strong>reasonable protective choice</strong>, not a universal law:</p>
+
+    <table>
+      <thead>
+        <tr><th>Concern (real)</th><th>How powder + this stack addresses it</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Drawer gunk</strong> — thickeners, fragrance carriers, and concentrated liquids can leave sticky residue in HE detergent compartments that low-water rinses don’t fully flush.</td>
+          <td>Powder goes in the <strong>drum</strong> (or drawer only if your manual allows and it rinses clean). Nothing viscous sitting in the liquid cup.</td>
+        </tr>
+        <tr>
+          <td><strong>Hard-water curds</strong> — some detergents react with calcium/magnesium and form insoluble scum (see <a href="#jar-test">jar test</a>).</td>
+          <td>365 powder includes builders that help in hard water; citric acid in rinse helps strip mineral/detergent film.</td>
+        </tr>
+        <tr>
+          <td><strong>Overdose residue</strong> — HE machines use little water; excess detergent of any form can remain.</td>
+          <td>Powder + measured booster + <strong>extra rinse</strong> + citric acid = aggressive about leaving nothing behind.</td>
+        </tr>
+        <tr>
+          <td><strong>“Need liquid for body oils”</strong> — liquids are often recommended for grease because they’re pre-dissolved.</td>
+          <td><strong>Dirty Labs booster</strong> adds lipase and other enzymes so you don’t need a liquid sport detergent for gym clothes.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout warn">
+      <strong>Honest nuance</strong>
+      Millions of people run HE machines on liquid detergent without problems. The issue is usually <em>formula + dose + water hardness + drawer hygiene</em>, not “liquid” as a category. Your powder-only approach trades convenience (can’t pour liquid on a stain in the drawer) for lower risk of sticky buildup on a machine you want to keep clean from day one. That’s a valid trade.
+    </div>
+
+    <h3>What “hooks” means in practice</h3>
+    <ul>
+      <li><strong>Physical:</strong> undissolved granules, viscous films, waxy softener layers in gasket folds and dispenser channels</li>
+      <li><strong>Chemical:</strong> soap scum (detergent + hard-water minerals), fatty-acid residues from incomplete oil removal, biofilm that grows on any of the above</li>
+    </ul>
+    <p>Starting with a low-residue stack makes it easier to keep the machine “empty” so nothing old competes with each new wash.</p>
+  </section>
+
+  <section id="each-product">
+    <h2>What each product does</h2>
+
+    <h3>365 Unscented Powder</h3>
+    <ul>
+      <li><strong>Surfactants</strong> — lift everyday dirt, body oils, and grease (the “carriers”)</li>
+      <li><strong>Enzymes</strong> including lipase — start breaking down proteins and oils</li>
+      <li><strong>Oxygen bleach</strong> — whitens, deodorizes organic residues; works best warm-to-hot</li>
+      <li><strong>Builders</strong> — help in hard water; good on mud, dust, dinginess</li>
+    </ul>
+    <p>Community starting dose: about <strong>½ scoop</strong> per normal load (tune down if suds are heavy). Add to <strong>drum before clothes</strong> unless your manual specifies the drawer.</p>
+
+    <h3>Dirty Labs Bio Enzyme Laundry Booster</h3>
+    <ul>
+      <li>Adds concentrated <strong>enzyme</strong> cleaning (lipase for body oils/sebum, protease for sweat proteins, etc.)</li>
+      <li>Fills the gap that liquid “sport” detergents usually cover — without introducing liquid to the machine</li>
+      <li>Effects on gym odor are <strong>cumulative</strong>; don’t expect one wash to fix a years-old funky polyester shirt</li>
+    </ul>
+    <p>Follow package dose. Most useful on athletic wear, heavily soiled loads, and when washing in cooler water where enzymes still help but powder alone might leave more oil behind.</p>
+
+    <h3>Food-grade citric acid (rinse)</h3>
+    <ul>
+      <li><strong>Not a softener</strong> — doesn’t coat fibers with wax</li>
+      <li>Lowers rinse pH, helps flush excess detergent and mineral scale</li>
+      <li>Improves hand-feel on towels and cotton (fluffier, less “crunchy from alkali”)</li>
+    </ul>
+    <p><strong>How to use:</strong> Dissolve measured citric acid in <strong>room-temperature water</strong> (add acid to water, not the reverse). Pour into the <strong>softener compartment</strong>. Starting point: <strong>1–2 teaspoons</strong> acid per load; increase slightly for very hard water.</p>
+    <p>Pre-dissolving is preferred for this system — it dispenses cleanly, avoids dry crystals in the drawer, and matches the “no mystery residue” goal.</p>
+  </section>
+
+  <section id="how-to-wash">
+    <h2>How to run a load</h2>
+    <p>General pattern for this stack on an HE front-loader:</p>
+    <ol>
+      <li>Add <strong>365 powder</strong> and <strong>Dirty Labs booster</strong> to the <strong>drum</strong> before clothes (check booster label — some allow drawer).</li>
+      <li>Load clothes. Don’t overload — enzymes and rinse need water contact.</li>
+      <li><strong>Warm or hot</strong> when fabric care allows (helps powder dissolve and oxygen bleach work).</li>
+      <li>Pour <strong>pre-dissolved citric acid</strong> into the softener drawer.</li>
+      <li>Select cycle (Normal, Towels, Sportswear, etc. per load type).</li>
+      <li>Enable <strong>extra rinse</strong> (many enthusiasts use double extra rinse on a new machine).</li>
+      <li>Remove promptly; leave door and drawer open to dry.</li>
+    </ol>
+
+    <table>
+      <thead>
+        <tr><th>Load type</th><th>Powder</th><th>Dirty Labs</th><th>Citric acid rinse</th><th>Temp</th><th>Notes</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Everyday / colors</strong></td>
+          <td>½ scoop</td>
+          <td>Per label</td>
+          <td>1–2 tsp dissolved</td>
+          <td>Warm</td>
+          <td>Normal + extra rinse</td>
+        </tr>
+        <tr>
+          <td><strong>Whites / towels / bedding</strong></td>
+          <td>½ scoop</td>
+          <td>Per label</td>
+          <td>1–2 tsp dissolved</td>
+          <td>Hot</td>
+          <td>Dedicated cycle if available</td>
+        </tr>
+        <tr>
+          <td><strong>Sportswear / gym</strong></td>
+          <td>½ scoop</td>
+          <td>Per label (don’t skip)</td>
+          <td>1–2 tsp dissolved</td>
+          <td>Warm</td>
+          <td>No softener ever; wash soon after use</td>
+        </tr>
+        <tr>
+          <td><strong>Delicates</strong></td>
+          <td>Reduce dose</td>
+          <td>Skip or minimal</td>
+          <td>1–2 tsp dissolved</td>
+          <td>Cool</td>
+          <td>Consider dedicated wool/silk wash for true delicates</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout tip">
+      <strong>Tune by watching suds</strong>
+      A light trace of bubbles on the door glass after a few minutes is enough. More than that → reduce powder dose.
+    </div>
+  </section>
+
+  <section id="lipase-list">
+    <h2>Lipase detergent list</h2>
+    <p>Lipase is the enzyme that breaks down <strong>body oils and sebum</strong> — the main culprit in persistent gym-clothes odor. If you ever swap products, check whether a detergent actually contains lipase (many marketing claims are vague).</p>
+    <p>
+      <a class="ext" href="https://docs.google.com/spreadsheets/d/1oHWzZ1Sth0Y0J2ynmXFl7M4mGZe-T_MJ_m_Y39pfBug/edit" target="_blank" rel="noopener noreferrer">
+        Community lipase detergent spreadsheet
+      </a>
+      — compare formulas, enzyme content, and alternatives to the 365 powder + Dirty Labs stack.
+    </p>
+    <p>365 powder already includes lipase; Dirty Labs adds more. You shouldn’t need a separate liquid sport detergent if this combo is dosed correctly and gym loads are washed warm with extra rinse.</p>
+  </section>
+
+  <section id="gym-odors">
+    <h2>Gym clothes &amp; odors</h2>
+    <p>Polyester holds body oils more than cotton. A shirt can smell fine out of the dryer, then sour or “vomit-like” (butyric acid from bacteria on leftover oils) once your body heat warms it.</p>
+
+    <h3>How this stack helps</h3>
+    <ul>
+      <li><strong>Lipase</strong> (powder + booster) breaks oils into smaller pieces the wash can rinse away</li>
+      <li><strong>No fabric softener</strong> — nothing trapping oils under a coating</li>
+      <li><strong>Citric acid rinse</strong> — strips detergent/mineral film that can hold odor</li>
+      <li><strong>Extra rinse</strong> — fewer enzyme breakdown products left behind</li>
+    </ul>
+
+    <h3>Still do these</h3>
+    <ul>
+      <li>Wash soon after sweating</li>
+      <li>Don’t overdose powder (residue traps odor)</li>
+      <li>Keep the washer gasket clean — biofilm can re-deposit on “clean” clothes</li>
+      <li>Expect improvement over <em>multiple washes</em>, not one miracle load</li>
+    </ul>
+  </section>
+
+  <section id="machine-care">
+    <h2>Protecting a new machine</h2>
+    <p>The product choices above only work if the machine stays clean.</p>
+    <ul>
+      <li><strong>After every wash:</strong> wipe gasket; leave door and drawers open</li>
+      <li><strong>Every load:</strong> clean lint trap (dryer)</li>
+      <li><strong>Weekly:</strong> disinfect door seal</li>
+      <li><strong>Monthly:</strong> tub clean cycle; remove and wash detergent drawer; citric acid or manufacturer tablets in drum</li>
+      <li><strong>Periodically:</strong> drain pump filter (front loaders)</li>
+      <li><strong>Annually:</strong> dryer vent duct cleaning</li>
+    </ul>
+    <p>Run <a href="#jar-test">jar test</a> on any new product before it enters the machine — gift detergents, pods, or “luxury” liquids included.</p>
+  </section>
+
+  <section id="reference" class="reference">
+    <h2>Reference: jar test &amp; background chemistry</h2>
+    <p>Optional deeper reading — useful when evaluating products outside this stack.</p>
+
+    <h3 id="jar-test">Jar test (detergent + your water)</h3>
+    <ol>
+      <li>One cup tap water in a lidded jar + ½ tsp detergent</li>
+      <li>Shake until maximally foamy; set aside</li>
+      <li>When foam collapses, everything should dissolve back. <strong>Scum, curds, or flakes that won’t redissolve</strong> = too “soapy” for your water → machine buildup risk</li>
+    </ol>
+
+    <h3>Liquid vs powder (general)</h3>
+    <p>Liquids excel at pre-treating oily stains; powders excel at mud, dust, and whitening with oxygen bleach. <em>This site’s approach</em> chooses powder + enzyme booster instead of liquid for machine-hygiene reasons, not because liquids never work.</p>
+
+    <h3>Butyric acid / “vomit smell”</h3>
+    <p>Usually residual body oils in synthetics + bacteria → volatile fatty acids. Not “detergent failed entirely” — often incomplete oil removal, washer biofilm, fabric softener coating, or poor rinse. This stack targets each of those.</p>
+
+    <h3>What others do differently</h3>
+    <p>Some enthusiasts pair <strong>365 Sport liquid + 365 powder</strong> on every load. That works for them; this system deliberately replaces the liquid sport role with <strong>Dirty Labs booster</strong> to stay powder-only in the machine.</p>
+  </section>
+
+  <section id="faq">
+    <h2>FAQ</h2>
+
+    <h3>Is avoiding all liquid detergent scientifically required?</h3>
+    <p>No — but it’s a sensible <strong>risk-reduction</strong> strategy for a new HE machine, especially if you want zero liquid in the detergent drawer and you’re covering oils with lipase from powder + booster. The stronger hard rule is <strong>no fabric softener</strong>.</p>
+
+    <h3>Why dissolve citric acid instead of putting powder in the softener drawer?</h3>
+    <p>Pre-dissolved solution dispenses evenly, avoids crystals clogging the compartment, and fits the “nothing left behind” philosophy. Same chemistry, cleaner delivery.</p>
+
+    <h3>Is 365 powder + Dirty Labs overkill?</h3>
+    <p>There is overlap in enzymes. Booster is most justified for gym wear, heavy soil, and cool washes. For lightly worn delicates, skip or reduce booster.</p>
+
+    <h3>Can I ever use liquid for stain pre-treat?</h3>
+    <p>A small amount applied <strong>directly to a stain on the fabric</strong> (not through the machine drawer) is different from running liquid through the dispenser. Many people make that exception; it doesn’t require changing the whole system.</p>
+
+    <h3>Where’s the lipase list?</h3>
+    <p><a class="ext" href="https://docs.google.com/spreadsheets/d/1oHWzZ1Sth0Y0J2ynmXFl7M4mGZe-T_MJ_m_Y39pfBug/edit" target="_blank" rel="noopener noreferrer">Community lipase detergent spreadsheet</a>.</p>
+  </section>
+</div>
+
+<footer>
+  <p>Open <code>docs/index.html</code> in any browser · <strong>Print → Save as PDF</strong> for a portable copy</p>
+  <p>Lipase list: <a href="https://docs.google.com/spreadsheets/d/1oHWzZ1Sth0Y0J2ynmXFl7M4mGZe-T_MJ_m_Y39pfBug/edit">Google Sheets</a></p>
+</footer>
+
+</body>
+</html>
