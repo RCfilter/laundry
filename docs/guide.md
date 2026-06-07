@@ -11,12 +11,14 @@ A practical introduction to detergents, enzymes, odors, and routines — for peo
 1. [Liquid vs powder](#liquid-vs-powder)
 2. [Ingredient cheat sheet](#ingredient-cheat-sheet)
 3. [Water, temperature & HE machines](#water-temperature--he-machines)
-4. [Practical detergent setup](#practical-detergent-setup)
-5. [Gym clothes & enzyme boosters](#gym-clothes--enzyme-boosters)
-6. [The vomit smell (butyric acid)](#the-vomit-smell-butyric-acid)
-7. [Example load-by-load routine](#example-load-by-load-routine)
-8. [Machine care](#machine-care)
-9. [FAQ](#faq)
+4. [The jar test](#the-jar-test-detergent--your-water)
+5. [Practical detergent setup](#practical-detergent-setup)
+6. [When enthusiasts switch products](#when-enthusiasts-switch-products)
+7. [Gym clothes & enzyme boosters](#gym-clothes--enzyme-boosters)
+8. [The vomit smell (butyric acid)](#the-vomit-smell-butyric-acid)
+9. [Example load-by-load routine](#example-load-by-load-routine)
+10. [Machine care](#machine-care)
+11. [FAQ](#faq)
 
 ---
 
@@ -33,6 +35,26 @@ A practical introduction to detergents, enzymes, odors, and routines — for peo
 
 ---
 
+## The jar test (detergent + your water)
+
+Home rule-of-thumb before trusting a new detergent (e.g. The Laundress) in your machine:
+
+1. One cup **your tap water** in a lidded glass jar  
+2. Add **½ teaspoon** detergent  
+3. Shake until **maximally foamy**  
+4. Set aside; watch foam collapse  
+
+**“Won’t go back into the water”** = after foam is gone, visible **scum, flakes, curds, or film** remain instead of dissolving back. That means detergent + your minerals (hard water) formed insoluble residue — same idea as soap scum in a tub.
+
+**If the test fails:** add water softening, handwash with heavy rinse, or pick another product. Not “brand X is always bad” — **your water matters**.
+
+```
+Shake → foam collapses → everything dissolves?  YES → likely OK in machine
+                                               NO  → risk of washer/clothes buildup
+```
+
+---
+
 ## Ingredient cheat sheet
 
 | Ingredient | What it does |
@@ -45,6 +67,7 @@ A practical introduction to detergents, enzymes, odors, and routines — for peo
 | **Oxygen bleach** | Chemically bleaches organic stains; whitens; deodorizes; needs warm water + time |
 | **Oxi (e.g. Biz)** | Boosts cleaning; softens water; may contain OBAs — great for whites, caution on darks |
 | **Citric acid** | Rinse aid: balances pH, removes detergent/mineral film, improves feel |
+| **TAED** | Bleach activator in some powders (e.g. Tide with Bleach); helps oxygen bleach whiten/deodorize in warm/cooler water |
 
 **Oxi on colors:** Lighter than "light navy" → oxi with OBAs OK. Darker than "charcoal" → use dark-safe oxi without OBAs or skip.
 
@@ -70,6 +93,23 @@ A practical introduction to detergents, enzymes, odors, and routines — for peo
 |---|---|
 | Liquid | Daily laundry, darks, oily stains, spot treatment |
 | Powder | Whites, towels, bedding, muddy/heavy soil, odors |
+
+---
+
+## When enthusiasts switch products
+
+**Default liquid:** 365 Sport (enzymes, DNase, routine + gym).
+
+**Reach for Tide with Bleach (TwB) powder when:**
+
+| Situation | Why |
+|---|---|
+| Clay, dust, soot, mud | Powders + builders excel on mineral/particulate dirt |
+| Very filthy loads | Strong anionic surfactants in heavy-duty powder |
+| Extreme whitening/odor | TAED activates oxygen bleach without boiling water |
+| Cheaper freshening wash | TwB costs less when soil is light |
+
+**Specialty only:** Wool/silk → Ecover Wool & Silk, Orvus, Nikwax Wool Wash. Down → Nikwax Down Wash.
 
 ---
 
@@ -145,6 +185,10 @@ Sour/vomit smell after washing = organic residue survived + bacteria/enzymes pro
 **Booster fix gym smell in one wash?** Rarely. Expect gradual improvement + dose/timing/softener/washer fixes.
 
 **Fine in dryer, awful when exercising?** Residual oils in synthetics + body heat releasing odor molecules.
+
+**The Laundress safe for washer?** Run the jar test with your water — residue that won’t redissolve may gunk machines over time.
+
+**What does TAED do?** Bleach activator; helps oxygen bleach work harder in warm/cool water.
 
 ---
 
